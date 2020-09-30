@@ -1,0 +1,24 @@
+AllCops:
+  TargetRubyVersion: 2.7
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/BlockDelimiters:
+  Enabled: false
+
+require:
+  - rubocop-performance
+  - rubocop-rspec
