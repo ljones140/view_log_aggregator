@@ -1,14 +1,24 @@
 # frozen_string_literal: true
 
+require 'ipaddr'
+
 class PageEntry
-  attr_reader :name, :view_count
+  attr_reader :name
 
   def initialize(name:)
     @name = name
-    @view_count = 0
+    @visitor_ips = []
   end
 
-  def add_view
-    @view_count += 1
+  def add_view(ip:)
+    @visitor_ips << ip
+  end
+
+  def view_count
+    @visitor_ips.count
+  end
+
+  def unique_views
+    @visitor_ips.uniq.count
   end
 end
