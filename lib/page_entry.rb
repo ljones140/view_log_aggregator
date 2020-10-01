@@ -7,4 +7,8 @@ class PageEntry
     @name = name
     @view_count = 0
   end
+
+  def add_view
+    @view_count += 1
+  end
 end
