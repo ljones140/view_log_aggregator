@@ -13,7 +13,7 @@ RSpec.describe PageEntry do
     it 'increments view_count by 1' do
       page = described_class.new(name: '/page-name')
       expect { page.add_view(ip: IPAddr.new('192.168.0.1')) }
-        .to change { page.view_count }
+        .to change { page.views }
         .from(0)
         .to(1)
     end

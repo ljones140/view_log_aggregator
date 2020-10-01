@@ -14,7 +14,7 @@ class PageEntry
     @visitor_ips << ip
   end
 
-  def view_count
+  def views
     @visitor_ips.count
   end
 
