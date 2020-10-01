@@ -9,11 +9,6 @@ RSpec.describe PageEntry do
     expect(page.name).to eq('/page-name')
   end
 
-  it 'is created with a view_count of 0' do
-    page = described_class.new(name: '/page-name')
-    expect(page.view_count).to eq(0)
-  end
-
   describe 'adding page views' do
     it 'increments view_count by 1' do
       page = described_class.new(name: '/page-name')
