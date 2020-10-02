@@ -18,7 +18,7 @@ RSpec.describe PageEntry do
         .to(1)
     end
 
-    describe '#unique_visitors' do
+    describe 'counting unique visits' do
       it 'returns a count of each added view when views have come from different ip addresses' do
         page = described_class.new(name: '/page-name')
         expect {
