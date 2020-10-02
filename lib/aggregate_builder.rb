@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require './lib/page_entry'
-require 'ipaddr'
 
 class AggregateBuilder
   attr_reader :page_views
