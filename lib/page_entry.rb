@@ -8,17 +8,21 @@ class PageEntry
   def initialize(name:)
     @name = name
     @visitor_ips = []
+    @visit_count = 0
+    @unique_view_count = 0
   end
 
   def add_visit(ip:)
+    @visit_count += 1
+    @unique_view_count += 1 unless @visitor_ips.include?(ip)
     @visitor_ips << ip
   end
 
   def visits
-    @visitor_ips.count
+    @visit_count
   end
 
   def unique_views
-    @visitor_ips.uniq.count
+    @unique_view_count
   end
 end
