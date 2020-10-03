@@ -17,7 +17,7 @@ class LogParser
     end
     print_page_visits(@aggregator.page_visits)
     print_unique_views(@aggregator.page_visits)
-    print_invalid_entries(@aggregator.invalid_entries)
+    print_invalid_entries(@aggregator.invalid_entries) if @aggregator.invalid_entries.any?
   end
 
   private

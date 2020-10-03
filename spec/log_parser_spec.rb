@@ -40,9 +40,16 @@ RSpec.describe LogParser do
   it 'sends invalid entries to printer' do
     printer = TestPrinter.new
     parser = described_class.new(printer: printer)
-    parser.parse_log('spec/support/example.log')
+    parser.parse_log('spec/support/example_with_invalid_ip.log')
     expect(printer.invalide_entries_received).to eq(
       ['/broken not_an_ip_address'],
     )
+  end
+
+  it 'does not print invalid entries when there is none' do
+    printer = TestPrinter.new
+    parser = described_class.new(printer: printer)
+    parser.parse_log('spec/support/example.log')
+    expect(printer.invalide_entries_received).to be_nil
   end
 end
