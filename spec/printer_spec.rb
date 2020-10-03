@@ -11,8 +11,8 @@ RSpec.describe Printer do
     expect(TTY::Table).to receive(:new).with(
       ['Page name', 'visits'],
       [['/foo', 1], ['/bar', 1]],
-    )
-    printer.visits([['/foo', 1], ['/bar', 1]])
+    ).and_call_original
+    printer.print_visits([['/foo', 1], ['/bar', 1]])
   end
 
   it 'creates unique views TTY Table' do
@@ -20,7 +20,7 @@ RSpec.describe Printer do
     expect(TTY::Table).to receive(:new).with(
       ['Page name', 'Unique Views'],
       [['/foo', 1], ['/bar', 1]],
-    )
-    printer.unique_views([['/foo', 1], ['/bar', 1]])
+    ).and_call_original
+    printer.print_unique_views([['/foo', 1], ['/bar', 1]])
   end
 end

@@ -3,11 +3,11 @@
 require 'tty-table'
 
 class Printer
-  def visits(data)
-    TTY::Table.new(['Page name', 'visits'], data)
+  def print_visits(data)
+    puts TTY::Table.new(['Page name', 'visits'], data).render(:ascii)
   end
 
-  def unique_views(data)
-    TTY::Table.new(['Page name', 'Unique Views'], data)
+  def print_unique_views(data)
+    puts TTY::Table.new(['Page name', 'Unique Views'], data).render(:ascii)
   end
 end
