@@ -3,7 +3,7 @@
 require './lib/page_entry'
 require 'ipaddr'
 
-class AggregateBuilder
+class PageViewAggregator
   attr_reader :page_views, :invalid_entries
 
   def initialize
