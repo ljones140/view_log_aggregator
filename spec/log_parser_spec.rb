@@ -6,11 +6,11 @@ require './lib/log_parser'
 RSpec.describe LogParser do
   class TestPrinter
     attr_reader :visits_received, :unique_views_received
-    def print_visits(data)
+    def visits(data)
       @visits_received = data
     end
 
-    def print_unique_views(data)
+    def unique_views(data)
       @unique_views_received = data
     end
   end
