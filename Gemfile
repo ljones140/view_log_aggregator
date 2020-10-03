@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+gem 'tty-table', require: false
+
 group :test do
   gem 'rspec'
 end

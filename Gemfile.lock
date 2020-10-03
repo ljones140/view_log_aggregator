@@ -9,6 +9,8 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
+    pastel (0.8.0)
+      tty-color (~> 0.5)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -47,7 +49,19 @@ GEM
     rubocop-rspec (1.43.2)
       rubocop (~> 0.87)
     ruby-progressbar (1.10.1)
+    strings (0.2.0)
+      strings-ansi (~> 0.2)
+      unicode-display_width (~> 1.5)
+      unicode_utils (~> 1.4)
+    strings-ansi (0.2.0)
+    tty-color (0.5.2)
+    tty-screen (0.8.1)
+    tty-table (0.12.0)
+      pastel (~> 0.8)
+      strings (~> 0.2.0)
+      tty-screen (~> 0.8)
     unicode-display_width (1.7.0)
+    unicode_utils (1.4.0)
 
 PLATFORMS
   ruby
@@ -59,6 +73,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rspec
+  tty-table
 
 BUNDLED WITH
    2.1.4
