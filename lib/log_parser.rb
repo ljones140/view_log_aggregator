@@ -16,6 +16,7 @@ class LogParser
     end
     print_load_page_visits(@aggregator.page_visits)
     print_load_unique_views(@aggregator.page_visits)
+    @printer.render
   end
 
   private
