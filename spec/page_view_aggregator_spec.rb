@@ -21,7 +21,7 @@ RSpec.describe PageViewAggregator do
     it 'adds page to invalid entries not page visits when IP is invalid' do
       aggregator = described_class.new
       aggregator.add_entry(page_name: '/foo', visitor_ip: 'not an IP address')
-      expect(aggregator.invalid_entries).to eq([{ name: '/foo', ip: 'not an IP address' }])
+      expect(aggregator.invalid_entries).to eq(['/foo not an IP address'])
       expect(aggregator.page_visits).to eq([])
     end
 

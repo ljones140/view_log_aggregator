@@ -19,7 +19,7 @@ class PageViewAggregator
     begin
       ip = IPAddr.new(visitor_ip)
     rescue IPAddr::InvalidAddressError
-      @invalid_entries << { name: page_name, ip: visitor_ip }
+      @invalid_entries << [page_name, visitor_ip].join(' ')
       return
     end
     add_visit(page_name, ip)

@@ -17,6 +17,7 @@ class LogParser
     end
     print_page_visits(@aggregator.page_visits)
     print_unique_views(@aggregator.page_visits)
+    print_invalid_entries(@aggregator.invalid_entries)
   end
 
   private
@@ -31,5 +32,9 @@ class LogParser
     visits.sort_by(&:unique_views).reverse
           .map { |entry| [entry.name, entry.unique_views] }
           .then { |results| @printer.print_unique_views(results) }
+  end
+
+  def print_invalid_entries(invalid_entries)
+    @printer.print_invalid_entries(invalid_entries)
   end
 end

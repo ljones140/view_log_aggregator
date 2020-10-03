@@ -23,4 +23,14 @@ RSpec.describe Printer do
     ).and_call_original
     printer.print_unique_views([['/foo', 1], ['/bar', 1]])
   end
+
+  it 'prints invalid entries' do
+    expect {
+      described_class.new.print_invalid_entries(
+        ['/foo not_an_ip', '/bar not_an_ip'],
+      )
+    }.to output(
+      "Invalid Entries\n/foo not_an_ip\n/bar not_an_ip\n",
+    ).to_stdout
+  end
 end
