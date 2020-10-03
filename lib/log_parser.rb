@@ -17,5 +17,8 @@ class LogParser
     aggregator.page_visits.sort_by(&:visits).reverse
               .map { |entry| [entry.name, entry.visits] }
               .then { |results| @printer.print_visits(results) }
+    aggregator.page_visits.sort_by(&:unique_views).reverse
+              .map { |entry| [entry.name, entry.unique_views] }
+              .then { |results| @printer.print_unique_views(results) }
   end
 end
