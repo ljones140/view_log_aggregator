@@ -10,11 +10,11 @@ class PageEntry
     @visitor_ips = []
   end
 
-  def add_view(ip:)
+  def add_visit(ip:)
     @visitor_ips << ip
   end
 
-  def views
+  def visits
     @visitor_ips.count
   end
 

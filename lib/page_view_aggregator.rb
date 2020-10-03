@@ -4,10 +4,10 @@ require './lib/page_entry'
 require 'ipaddr'
 
 class PageViewAggregator
-  attr_reader :page_views, :invalid_entries
+  attr_reader :page_entries, :invalid_entries
 
   def initialize
-    @page_views = {}
+    @page_entries = {}
     @invalid_entries = []
   end
 
@@ -18,17 +18,17 @@ class PageViewAggregator
       @invalid_entries << { name: page_name, ip: visitor_ip }
       return
     end
-    add_to_page_views(page_name, ip)
+    add_visit(page_name, ip)
   end
 
   private
 
-  def add_to_page_views(name, ip)
-    page_entry = @page_views.fetch(name) {
+  def add_visit(name, ip)
+    page_entry = @page_entries.fetch(name) {
       new_entry = PageEntry.new(name: name)
-      @page_views[name] = new_entry
+      @page_entries[name] = new_entry
       new_entry
     }
-    page_entry.add_view(ip: ip)
+    page_entry.add_visit(ip: ip)
   end
 end
