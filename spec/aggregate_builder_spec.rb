@@ -17,7 +17,7 @@ RSpec.describe AggregateBuilder do
       expect(aggregate_builder.page_views['/foo'].views).to eq(1)
     end
 
-    it 'adds page to invalid address when IP is invalid' do
+    it 'adds page to invalid entries not page views when IP is invalid' do
       aggregate_builder = described_class.new
       aggregate_builder.add_entry(page_name: '/foo', visitor_ip: 'not an IP address')
       expect(aggregate_builder.invalid_entries).to eq([{ name: '/foo', ip: 'not an IP address' }])
