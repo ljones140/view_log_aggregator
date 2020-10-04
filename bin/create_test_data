@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+require 'ipaddr'
+page_names = [
+  '/about',
+  '/about/2',
+  '/contact',
+  '/help_page/1',
+  '/home',
+  '/index',
+]
+
+ip_addresses = Array.new(10) { IPAddr.new(rand(2**32), Socket::AF_INET) } << 'invalid_ip'
+
+100.times { puts "#{page_names.sample} #{ip_addresses.sample}\n" }
