@@ -5,6 +5,7 @@ require 'ipaddr'
 
 class PageViewAggregator
   attr_reader :invalid_entries
+
   def initialize
     @page_entries = {}
     @invalid_entries = []
