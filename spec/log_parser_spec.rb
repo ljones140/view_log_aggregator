@@ -47,7 +47,7 @@ RSpec.describe LogParser do
     )
   end
 
-  it 'does not print invalid entries when there is none' do
+  it 'does not send invalid entries to printer when there is none' do
     printer = TestPrinter.new
     parser = described_class.new(printer: printer)
     parser.parse_log('spec/support/example.log')
