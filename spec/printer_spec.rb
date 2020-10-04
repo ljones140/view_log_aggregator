@@ -6,6 +6,10 @@ require './lib/printer'
 require 'tty-table'
 
 RSpec.describe Printer do
+  before do
+    allow($stdout).to receive(:puts)
+  end
+
   it 'creates visits TTY Table' do
     printer = described_class.new
     expect(TTY::Table).to receive(:new).with(
