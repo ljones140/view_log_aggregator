@@ -17,12 +17,6 @@ class LogParser
     end
     @printer.print_visits(@aggregator.visits_data)
     @printer.print_unique_views(@aggregator.unique_views_data)
-    print_invalid_entries(@aggregator.invalid_entries) if @aggregator.invalid_entries.any?
-  end
-
-  private
-
-  def print_invalid_entries(invalid_entries)
-    @printer.print_invalid_entries(invalid_entries)
+    @printer.print_invalid_entries(@aggregator.invalid_entries) if @aggregator.invalid_entries.any?
   end
 end
