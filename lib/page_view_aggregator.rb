@@ -5,14 +5,23 @@ require 'ipaddr'
 
 class PageViewAggregator
   attr_reader :invalid_entries
-
   def initialize
     @page_entries = {}
     @invalid_entries = []
   end
 
-  def page_visits
-    @page_entries.values
+  def visits_data
+    @page_entries
+      .values
+      .sort_by(&:visits).reverse
+      .map { |entry| [entry.name, entry.visits] }
+  end
+
+  def unique_views_data
+    @page_entries
+      .values
+      .sort_by(&:unique_views).reverse
+      .map { |entry| [entry.name, entry.unique_views] }
   end
 
   def add_entry(page_name:, visitor_ip:)

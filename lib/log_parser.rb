@@ -15,24 +15,12 @@ class LogParser
       name, ip = line.split
       @aggregator.add_entry(page_name: name, visitor_ip: ip)
     end
-    print_page_visits(@aggregator.page_visits)
-    print_unique_views(@aggregator.page_visits)
+    @printer.print_visits(@aggregator.visits_data)
+    @printer.print_unique_views(@aggregator.unique_views_data)
     print_invalid_entries(@aggregator.invalid_entries) if @aggregator.invalid_entries.any?
   end
 
   private
-
-  def print_page_visits(visits)
-    visits.sort_by(&:visits).reverse
-          .map { |entry| [entry.name, entry.visits] }
-          .then { |results| @printer.print_visits(results) }
-  end
-
-  def print_unique_views(visits)
-    visits.sort_by(&:unique_views).reverse
-          .map { |entry| [entry.name, entry.unique_views] }
-          .then { |results| @printer.print_unique_views(results) }
-  end
 
   def print_invalid_entries(invalid_entries)
     @printer.print_invalid_entries(invalid_entries)
