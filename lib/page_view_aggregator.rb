@@ -35,7 +35,6 @@ class PageViewAggregator
     add_visit(page_name, ip)
   end
 
-
   private
 
   def add_visit(name, ip)
